@@ -7,6 +7,7 @@ fun main() {
     println(listOf(5, 2, 8, 6, 1, 9).fourthTask())
     println(fifthTask("jopa", null))
 }
+
 fun firstTask(str: String): Boolean {
     val stack = ArrayDeque<Char>()
 
@@ -29,9 +30,11 @@ fun firstTask(str: String): Boolean {
 
     return stack.isEmpty()
 }
-fun secondTask(listOfInt: List<Int>, operation: (List<Int>) -> List<Int>): List<Int> {
-    return operation(listOfInt)
+
+inline fun <T> secondTask(list: List<T>, operation: (List<T>) -> List<T>): List<T> {
+    return operation(list)
 }
+
 fun String.thirdTask(): Int {
     val vowels = "aeiouAEIOU"
     var count = 0
@@ -42,6 +45,7 @@ fun String.thirdTask(): Int {
     }
     return count
 }
+
 fun List<Int>.fourthTask(): Double {
     val sortedList = this.sorted()
     val size = sortedList.size
@@ -51,6 +55,7 @@ fun List<Int>.fourthTask(): Double {
         (mid1 + mid2) / 2.0
     } else sortedList[size / 2].toDouble()
 }
+
 fun fifthTask(s1: String?, s2: String?): String {
     val first = s1 ?: ""
     val second = s2 ?: ""
